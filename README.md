@@ -90,4 +90,34 @@ peer chaincode query -C mychannel -n basic -c '{"Args":["GetAllAssets"]}' | jq .
 ```
 
 
+## Submit Transaction using Idemix Identity - Fabric Gateway SDK for Java
+**a) Clone this Repository & Import into your favorite IDE**
+```bash
+FABRIC_PATH=~/Desktop/test && cd $FABRIC_PATH
+https://github.com/KarthikKavinA/fabric-idemix-identity-demo.git
+```
+
+**b) Enroll an Admin User**
+
+Enroll an Admin User by running the class named **"EnrollAdmin"**.
+Note that the file Admin Identity **(admin.id)** was created under **"wallet"** folder.
+
+**c) Register, Enroll & Store an User**
+
+Register, Enroll & Store a new User in a Wallet by running the class named **"RegisterAndEnrollAndStoreUserInWallet"**.
+Note that the file User Identity was created under **"wallet"** folder.
+
+**d) Submit a Transaction**
+
+Submit a Transaction to the Network by running the class named **"SubmitTxUsingOldGatewayJavaSDK"**. Please note that, we are selecting an **Idemix Identity** from a wallet which we have created in a previous step.
+
+
+
+## Submit Transaction using Idemix Identity - Fabric Gateway Client API for Java
+
+To submit a transaction to a fabric network using Fabric Gateway Client API for Java, Run the class named **"SubmitTxUsingIdemixIdentity"**. By default, it will create a new asset & query all assets by using an **Idemix Identity** from a fabric network.
+
+
+
+
 
