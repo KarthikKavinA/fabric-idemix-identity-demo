@@ -16,11 +16,14 @@ public class SubmitTxUsingOldGatewayJavaSDK {
 	}
 
 	public static void main(String[] args) throws Exception {
+		
+		String connectionProfile = System.getProperty("user.home") + "/Desktop/test/idemix-demo-fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/connection-org1.yaml";
+		
 		// Load a file system based wallet for managing identities.
 		Path walletPath = Paths.get("wallet");
 		Wallet wallet = Wallets.newFileSystemWallet(walletPath);
 		// load a CCP
-		Path networkConfigPath = Paths.get("/home/kavin/work/my/opensource/2022/git_repos/gateway-idemix/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/connection-org1.yaml");
+		Path networkConfigPath = Paths.get(connectionProfile);
 
 		Gateway.Builder builder = Gateway.createBuilder();
 		builder.identity(wallet, "appUser4Idemix").networkConfig(networkConfigPath).discovery(true);

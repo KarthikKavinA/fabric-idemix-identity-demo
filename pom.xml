@@ -242,14 +242,14 @@
             <artifactId>fabric-sdk-java</artifactId>
             <version>2.2.12</version>
             <scope>system</scope>
-            <systemPath>/home/kavin/work/final/official/fabric-sdk-java/target/fabric-sdk-java-2.2.0.jar</systemPath>
+            <systemPath>${basedir}/fabric_jars/fabric-sdk-java-2.2.0.jar</systemPath>
         </dependency>
 		<dependency>
 			<groupId>org.hyperledger.fabric</groupId>
     		<artifactId>fabric-gateway-java</artifactId>
   		    <version>2.2.0</version>
 			<scope>system</scope>
-			<systemPath>/home/kavin/work/final/official/fabric-gateway-java/target/fabric-gateway-java-2.2.0.jar</systemPath>
+			<systemPath>${basedir}/fabric_jars/fabric-gateway-java-2.2.0.jar</systemPath>
 		</dependency>
 		
 		<dependency>
@@ -257,7 +257,7 @@
     		<artifactId>fabric-gateway</artifactId>
   		    <version>1.1.1-SNAPSHOT</version>
 			<scope>system</scope>
-			<systemPath>/home/kavin/work/final/official/fabric-gateway/java/target/fabric-gateway-1.1.2-SNAPSHOT.jar</systemPath>
+			<systemPath>${basedir}/fabric_jars/fabric-gateway-1.1.2-SNAPSHOT.jar</systemPath>
 		</dependency>
 		
 		<!-- https://mvnrepository.com/artifact/org.hyperledger.fabric/fabric-protos -->

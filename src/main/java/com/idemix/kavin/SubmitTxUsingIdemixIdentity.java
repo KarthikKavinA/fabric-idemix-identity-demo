@@ -81,8 +81,10 @@ public final class SubmitTxUsingIdemixIdentity {
 	private static final String CHANNEL_NAME = System.getenv().getOrDefault("CHANNEL_NAME", "mychannel");
 	private static final String CHAINCODE_NAME = System.getenv().getOrDefault("CHAINCODE_NAME", "basic");
 
+	private static String ORG_CRYPTO_PATH = System.getProperty("user.home") + "/Desktop/test/idemix-demo-fabric-samples/test-network/organizations/peerOrganizations/org1.example.com";
+	
 	// Path to crypto materials.
-	private static final Path CRYPTO_PATH = Paths.get("/home/kavin/work/my/opensource/2022/git_repos/gateway-idemix/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com");
+	private static final Path CRYPTO_PATH = Paths.get(ORG_CRYPTO_PATH);
 	// Path to user certificate.
 	private static final Path CERT_PATH = CRYPTO_PATH.resolve(Paths.get("users/User1@org1.example.com/msp/signcerts/cert.pem"));
 	// Path to user private key directory.
@@ -286,11 +288,12 @@ public final class SubmitTxUsingIdemixIdentity {
 	 */
 	public static IdemixEnrollmentSerialized enrollIdemixIdentity(String enrollmentID) throws Exception {
 
+		String caCertPEM = System.getProperty("user.home") + "/Desktop/test/idemix-demo-fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/ca/ca.org1.example.com-cert.pem";
+		
 		// Enrolling an Admin Identity
 		// Create a CA client for interacting with the CA.
 		Properties props = new Properties();
-		props.put("pemFile",
-				"/home/kavin/work/my/opensource/2022/git_repos/gateway-idemix/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/ca/ca.org1.example.com-cert.pem");
+		props.put("pemFile", caCertPEM);
 		props.put("allowAllHostNames", "true");
 		HFCAClient caClient = HFCAClient.createNewInstance("https://localhost:7054", props);
 		CryptoSuite cryptoSuite = CryptoSuiteFactory.getDefault().getCryptoSuite();

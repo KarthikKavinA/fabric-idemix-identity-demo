@@ -31,10 +31,11 @@ public class EnrollAdmin {
 	public static void main(String[] args) throws EnrollmentException, InvalidArgumentException, CertificateException, IOException, CryptoException, org.hyperledger.fabric.sdk.exception.InvalidArgumentException, ClassNotFoundException, IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
 		System.out.println("Application is running!");
 
+		String caCertPEM = System.getProperty("user.home") + "/Desktop/test/idemix-demo-fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/ca/ca.org1.example.com-cert.pem";
+		
 		// Create a CA client for interacting with the CA.
 		Properties props = new Properties();
-		props.put("pemFile",
-			"/home/kavin/work/my/opensource/2022/git_repos/gateway-idemix/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/ca/ca.org1.example.com-cert.pem");
+		props.put("pemFile", caCertPEM);
 		props.put("allowAllHostNames", "true");
 		HFCAClient caClient = HFCAClient.createNewInstance("https://localhost:7054", props);
 		CryptoSuite cryptoSuite = CryptoSuiteFactory.getDefault().getCryptoSuite();
